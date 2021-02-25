@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def new
-        @user = User.find_by_id(params[:id])
+        @user = User.new
     end
 
     def create 
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
             @error = @user.errors.full_messages.to_sentence
             render new 
         end
+    end
+
+    def index
+        @user = User.find_by_id(params[:id])
     end
 
     private
